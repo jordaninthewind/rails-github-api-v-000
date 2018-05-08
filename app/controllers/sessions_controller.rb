@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 	skip_before_action :authenticate_user, only: :create
 
 	def create
-	  resp = Faraday.get("https://github.com/login/oauth/access_token", { 
+	  resp = Faraday.get("https://github.com/login/oauth/access_token", {
 	  	client_id: ENV['GITHUB_CLIENT_ID'],
 	  	client_secret: ENV['GITHUB_SECRET'],
 	  	redirect_uri: "http://localhost:3000/auth",
